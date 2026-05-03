@@ -1,0 +1,144 @@
+.wrap { padding: 1.25rem 1rem 2rem; max-width: 480px; margin: 0 auto; }
+
+/* Profile */
+.profileCard {
+  background: var(--white); border: 0.5px solid var(--border);
+  border-radius: 14px; padding: 16px; margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--purple-lt); color: var(--purple-dk);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 600; flex-shrink: 0;
+}
+.profileInfo { flex: 1; }
+.profileName { font-size: 15px; font-weight: 600; color: var(--text); }
+.levelPill {
+  display: inline-block; font-size: 10px; font-weight: 600;
+  padding: 2px 8px; border-radius: 999px; margin-left: 6px;
+}
+.profileMeta { font-size: 12px; color: var(--text-sec); margin-top: 2px; }
+.dayCol { text-align: right; font-size: 11px; color: var(--muted); }
+
+/* Scores */
+.sectionLbl {
+  font-size: 10px; font-weight: 600; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+}
+.scoresGrid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 8px; margin-bottom: 1rem;
+}
+.scoreCard {
+  background: var(--white); border: 0.5px solid var(--border);
+  border-radius: 10px; padding: 10px 8px; text-align: center;
+}
+.scoreVal { font-size: 18px; font-weight: 600; margin-bottom: 2px; transition: color .4s; }
+.scoreLbl { font-size: 10px; color: var(--muted); }
+.scoreBar { height: 3px; background: var(--border); border-radius: 99px; margin-top: 5px; overflow: hidden; }
+.scoreFill { height: 100%; border-radius: 99px; transition: width .7s ease; }
+
+/* Alert */
+.alert {
+  background: var(--amber-lt); border: 0.5px solid var(--amber);
+  border-radius: 10px; padding: 11px 14px; margin-bottom: 1rem;
+}
+.alertTitle { font-size: 12px; font-weight: 600; color: var(--amber); margin-bottom: 3px; }
+.alertBody { font-size: 12px; color: #633806; }
+
+/* Chat */
+.chatBox {
+  background: var(--white); border: 0.5px solid var(--border);
+  border-radius: 14px; overflow: hidden; margin-bottom: 1rem;
+}
+.chatHead {
+  padding: 10px 14px; border-bottom: 0.5px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.chatDot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--green);
+  animation: pulse-dot 2s infinite;
+}
+.chatName { font-size: 13px; font-weight: 600; color: var(--text); }
+.chatStatus { font-size: 11px; color: var(--muted); margin-left: auto; }
+
+.chatMsgs {
+  padding: 14px; min-height: 160px; max-height: 320px; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.timeLeft  { font-size: 10px; color: var(--muted); margin-bottom: 2px; }
+.timeRight { font-size: 10px; color: var(--muted); margin-bottom: 2px; text-align: right; }
+
+.bubbleAi {
+  max-width: 86%; padding: 9px 12px; font-size: 13px; line-height: 1.5;
+  background: var(--purple-lt); color: var(--purple-dk);
+  border-radius: 12px 12px 12px 2px; align-self: flex-start;
+}
+.bubbleUser {
+  max-width: 86%; padding: 9px 12px; font-size: 13px; line-height: 1.5;
+  background: var(--bg); color: var(--text);
+  border: 0.5px solid var(--border);
+  border-radius: 12px 12px 2px 12px; align-self: flex-end;
+}
+.typing {
+  display: flex; gap: 4px; align-items: center;
+  padding: 10px 13px; background: var(--purple-lt);
+  border-radius: 12px 12px 12px 2px; align-self: flex-start; width: fit-content;
+}
+.typing span {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--purple);
+  animation: blink 1.2s infinite;
+}
+.typing span:nth-child(2) { animation-delay: .2s; }
+.typing span:nth-child(3) { animation-delay: .4s; }
+
+.quickReplies { display: flex; flex-wrap: wrap; gap: 7px; padding: 0 14px 12px; }
+.qr {
+  font-size: 12px; padding: 6px 13px; border-radius: 999px;
+  border: 0.5px solid var(--border-dk); background: var(--white);
+  color: var(--text); transition: all .15s;
+}
+.qr:hover { background: var(--purple-lt); border-color: var(--purple); color: var(--purple-dk); }
+
+.inputRow { display: flex; gap: 8px; padding: 0 14px 14px; }
+.input {
+  flex: 1; border: 0.5px solid var(--border); border-radius: 8px;
+  padding: 8px 12px; font-size: 13px; color: var(--text);
+  background: var(--bg); outline: none;
+}
+.input:focus { border-color: var(--border-dk); }
+.sendBtn {
+  width: 36px; height: 36px; border-radius: 8px; background: var(--green);
+  border: none; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: background .15s;
+}
+.sendBtn:hover { background: var(--green-dk); }
+.sendBtn svg { width: 14px; height: 14px; }
+
+/* Memory */
+.memoryBox {
+  background: var(--white); border: 0.5px solid var(--border);
+  border-radius: 14px; padding: 14px; margin-bottom: 1rem;
+}
+.memItem {
+  display: flex; gap: 8px; margin-bottom: 7px; font-size: 12px;
+  color: var(--text-sec); line-height: 1.5; align-items: flex-start;
+}
+.memDot { width: 4px; height: 4px; border-radius: 50%; background: var(--purple); flex-shrink: 0; margin-top: 5px; }
+.memNew { background: var(--green-lt); border-radius: 7px; padding: 5px 8px; color: var(--green-dk); }
+.memNew .memDot { background: var(--green); }
+
+/* Actions */
+.actionGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 1rem; }
+.agBtn {
+  padding: 11px; border-radius: 9px; border: 0.5px solid var(--border-dk);
+  background: var(--white); font-size: 12px; font-weight: 500;
+  color: var(--text); text-align: left; transition: all .15s;
+}
+.agBtn span { font-size: 14px; margin-right: 4px; display: block; margin-bottom: 2px; }
+.agBtn:hover { background: var(--bg); }
+.agBtn.primary { background: var(--green); color: var(--white); border-color: var(--green); }
+.agBtn.primary:hover { background: var(--green-dk); }
+.agBtn.sec { background: var(--purple); color: var(--white); border-color: var(--purple); }
+.agBtn.sec:hover { background: var(--purple-dk); }

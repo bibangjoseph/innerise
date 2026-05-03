@@ -1,0 +1,31 @@
+.nav {
+  background: var(--white);
+  border-top: 0.5px solid var(--border);
+  padding: .6rem 1rem;
+  display: flex;
+  justify-content: space-around;
+  position: sticky;
+  bottom: 0;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  transition: all .15s;
+}
+.item.active { background: var(--green-lt); }
+
+.icon { width: 20px; height: 20px; color: var(--muted); }
+.item.active .icon { color: var(--green-dk); }
+
+.label { font-size: 10px; font-weight: 500; color: var(--muted); }
+.item.active .label { color: var(--green-dk); }
+
+.dot { width: 20px; height: 3px; border-radius: 99px; background: var(--green); display: none; }
+.item.active .dot { display: block; }

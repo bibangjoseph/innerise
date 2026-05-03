@@ -1,0 +1,80 @@
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 1rem;
+}
+
+.card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+}
+
+.logoMark {
+  width: 48px; height: 48px;
+  background: var(--green);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+}
+.logoMark svg { width: 24px; height: 24px; }
+
+.brand {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: -.5px;
+  margin-bottom: 6px;
+}
+.brand span { color: var(--green); }
+
+.tagline {
+  font-size: 13px;
+  color: var(--text-sec);
+  margin-bottom: 0;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1.5rem 0;
+}
+
+.googleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 10px;
+  border: 0.5px solid var(--border-dk);
+  background: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  transition: all .15s;
+  margin-bottom: 1rem;
+}
+.googleBtn:hover { background: var(--bg); }
+
+.googleIcon { width: 18px; height: 18px; flex-shrink: 0; }
+
+.error {
+  font-size: 12px;
+  color: var(--coral);
+  margin-bottom: .75rem;
+}
+
+.disclaimer {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}

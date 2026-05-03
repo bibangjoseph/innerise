@@ -1,0 +1,52 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #1D9E75;
+  --green-lt: #E1F5EE;
+  --green-dk: #085041;
+  --purple: #534AB7;
+  --purple-lt: #EEEDFE;
+  --purple-dk: #3C3489;
+  --amber: #BA7517;
+  --amber-lt: #FAEEDA;
+  --coral: #D85A30;
+  --coral-lt: #FAECE7;
+  --dark: #0D1B2A;
+  --muted: #888780;
+  --bg: #F8F7F4;
+  --white: #FFFFFF;
+  --border: #E2E0D8;
+  --border-dk: #C8C6BE;
+  --text: #1A1A18;
+  --text-sec: #73726C;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+button { cursor: pointer; font-family: inherit; }
+input[type='range'] { width: 100%; accent-color: var(--green); }
+textarea { font-family: inherit; resize: none; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .4; }
+}
+@keyframes blink {
+  0%, 80%, 100% { opacity: .2; }
+  40%           { opacity: 1; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

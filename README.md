@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# Innerise App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application web de coaching mental assisté par IA. Elle accompagne l'utilisateur au quotidien via deux modules complémentaires : un check-in conversationnel et un diagnostic approfondi.
 
-Currently, two official plugins are available:
+## Fonctionnalités
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Check-in (F1)
+Conversation guidée quotidienne avec l'**IA Miroir**. L'utilisateur répond à 2 questions et reçoit un retour personnalisé. Chaque session :
+- Met à jour les 4 scores de bien-être (Clarté, Résilience, Motivation, Ancrage)
+- Alimente la mémoire active du profil
+- Incrémente le streak de jours consécutifs
+- Déclenche une alerte si des scores critiques sont détectés
 
-## React Compiler
+### Diagnostic (F2)
+Analyse en 5 étapes (domaine → situation → humeur → contexte → résultat) :
+- Domaines : Professionnel, Personnel, Relationnel, Spirituel
+- Calcul des scores avec deltas, points forts et points d'attention
+- Action du jour personnalisée
+- Mise à jour automatique de la mémoire F1
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack technique
 
-## Expanding the ESLint configuration
+| Couche | Technologie |
+|--------|-------------|
+| Frontend | React 19 + TypeScript + Vite |
+| Auth | Firebase Auth (Google Sign-In) |
+| Base de données | Cloud Firestore |
+| Hébergement | Firebase Hosting |
+| Backend (IA) | Firebase Functions + Anthropic SDK |
+| Style | CSS Modules |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Prérequis
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 20+
+- Firebase CLI : `npm install -g firebase-tools`
+- Un projet Firebase avec Auth, Firestore et Functions activés
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+cd functions && npm install && cd ..
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Variables d'environnement
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Créer un fichier `.env.local` à la racine :
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+VITE_FIREBASE_STORAGE_BUCKET=...
+VITE_FIREBASE_MESSAGING_SENDER_ID=...
+VITE_FIREBASE_APP_ID=...
+```
+
+## Commandes
+
+```bash
+# Développement
+npm run dev
+
+# Build production
+npm run build
+
+# Aperçu du build
+npm run preview
+
+# Lint
+npm run lint
+
+# Émulateurs Firebase (auth, firestore, functions, hosting)
+firebase emulators:start
+
+# Déploiement
+npm run build && firebase deploy
+```
+
+## Structure du projet
+
+```
+src/
+├── components/
+│   ├── Auth/          # Écran de connexion Google
+│   ├── BottomNav/     # Navigation mobile en bas d'écran
+│   ├── CheckIn/       # Module F1 — chat + scores + mémoire
+│   ├── Diagnostic/    # Module F2 — diagnostic en 5 étapes
+│   └── Nav/           # Barre de navigation principale
+├── data/
+│   ├── conversations.ts   # Scénarios de check-in et diagnostics prédéfinis
+│   └── profiles.ts        # Situations par domaine
+├── hooks/
+│   ├── useAuth.ts     # Authentification Firebase
+│   └── useProfile.ts  # Gestion du profil Firestore
+├── lib/
+│   └── firebase.ts    # Initialisation Firebase
+└── types/
+    └── index.ts       # Types TypeScript (Profile, Scores, DiagnosticResult…)
+
+functions/
+└── src/               # Firebase Functions (intégration Anthropic)
 ```

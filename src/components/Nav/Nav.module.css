@@ -1,0 +1,77 @@
+.nav {
+  background: var(--dark);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo { display: flex; align-items: center; gap: 8px; }
+
+.logoMark {
+  width: 28px; height: 28px;
+  background: var(--green);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.logoMark svg { width: 16px; height: 16px; }
+
+.brand { font-size: 15px; font-weight: 600; color: var(--white); letter-spacing: -.2px; }
+.brand span { color: var(--green); }
+
+.right { display: flex; align-items: center; gap: 12px; }
+
+.streak {
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,.08);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+.streak span { font-size: 12px; font-weight: 500; color: var(--white); }
+.streakUnit { font-size: 11px; color: var(--muted) !important; }
+
+.fire {
+  width: 10px; height: 12px;
+  background: var(--coral);
+  border-radius: 50% 50% 40% 40%;
+  position: relative;
+}
+.fire::after {
+  content: '';
+  position: absolute;
+  width: 5px; height: 6px;
+  background: var(--amber);
+  border-radius: 50% 50% 40% 40%;
+  top: -3px; left: 2.5px;
+}
+
+.tab {
+  font-size: 12px; font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: none;
+  transition: all .15s;
+  background: transparent;
+  color: var(--muted);
+}
+.tab:hover { color: var(--white); }
+.tab.active { background: var(--green); color: var(--white); }
+
+.logoutBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 0;
+}
+.avatar {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: .85;
+  transition: opacity .15s;
+}
+.avatar:hover { opacity: 1; }
